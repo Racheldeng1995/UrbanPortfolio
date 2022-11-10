@@ -4,7 +4,7 @@ export const QUERY_STORIES = gql`
   query stories($username: String) {
     stories(username: $username) {
       _id
-      storyText
+      storyTitle
       createdAt
       username
       commentCount
@@ -22,6 +22,7 @@ export const QUERY_STORY = gql`
   query story($id: ID!) {
     story(_id: $id) {
       _id
+      storyTitle
       storyText
       createdAt
       username
@@ -49,7 +50,7 @@ export const QUERY_USER = gql`
       }
       stories {
         _id
-        storyText
+        storyTitle
         createdAt
         commentCount
       }
@@ -66,7 +67,7 @@ export const QUERY_ME = gql`
       friendCount
       stories {
         _id
-        storyText
+        storyTitle
         createdAt
         commentCount
         comments {

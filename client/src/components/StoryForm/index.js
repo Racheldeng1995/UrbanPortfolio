@@ -5,8 +5,10 @@ import { ADD_STORY } from '../../utils/mutations';
 import { QUERY_STORIES, QUERY_ME } from '../../utils/queries';
 
 const StoryForm = () => {
+  const [storyTitle, setTitle] = useState('');
   const [storyText, setText] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
+  const [characterCountTitle, setCharacterCountTitle] = useState(0);
+  const [characterCountText, setCharacterCountText] = useState(0);
 
   const [addStory, { error }] = useMutation(ADD_STORY, {
     update(cache, { data: { addStory } }) {
@@ -36,7 +38,11 @@ const StoryForm = () => {
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
       setText(event.target.value);
-      setCharacterCount(event.target.value.length);
+      setCharacterCountText(event.target.value.length);
+    }
+    if (event.target.value.length <= 12) {
+      setTitle(event.target.value);
+      setCharacterCountTitle(event.target.value.length);
     }
   };
 
@@ -46,12 +52,14 @@ const StoryForm = () => {
 
     try {
       await addStory({
-        variables: { storyText },
+        variables: { storyTitle, storyText },
       });
 
       // clear form value
       setText('');
-      setCharacterCount(0);
+      setTitle('');
+      setCharacterCountText(0);
+      setCharacterCountTitle(0);
     } catch (e) {
       console.error(e);
     }
@@ -59,22 +67,37 @@ const StoryForm = () => {
 
   return (
     <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
-        <textarea
-          placeholder="Here's a new story..."
-          value={storyText}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
+        <div>
+          <p
+          className={`m-0 ${characterCountTitle === 12 || error ? 'text-error' : ''}`}
+          >
+            Character Count: {characterCountTitle}/12
+            {error && <span className="ml-2">Something went wrong...</span>}
+          </p>
+          <textarea
+            placeholder="Please enter a title."
+            value={storyTitle}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          ></textarea>
+        </div>
+        <div>
+          <p
+          className={`m-0 ${characterCountText === 280 || error ? 'text-error' : ''}`}
+          >
+            Character Count: {characterCountText}/280
+            {error && <span className="ml-2">Something went wrong...</span>}
+          </p>
+          <textarea
+            placeholder="Here's a new story..."
+            value={storyText}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          ></textarea>
+        </div>
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>

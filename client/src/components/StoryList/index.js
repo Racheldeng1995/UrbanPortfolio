@@ -24,7 +24,7 @@ const StoryList = ({ stories, title }) => {
             </p>
             <div className="card-body">
               <Link to={`/story/${story._id}`}>
-                <p>{story.storyText}</p>
+                <p>{story.storyTitle}</p>
                 <p className="mb-0">
                   Comments: {story.commentCount} || Click to{' '}
                   {story.commentCount ? 'see' : 'start'} the discussion!

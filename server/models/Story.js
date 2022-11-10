@@ -4,6 +4,13 @@ const dateFormat = require('../utils/dateFormat');
 
 const storySchema = new Schema(
   {
+    storyTitle: {
+      type: String,
+      required: 'You need to leave a title!',
+      minlength: 1,
+      maxlength: 12
+    },
+
     storyText: {
       type: String,
       required: 'You need to leave a story!',

@@ -12,6 +12,7 @@ const typeDefs = gql`
 
   type Story {
     _id: ID
+    storyTitle: String
     storyText: String
     createdAt: String
     username: String
@@ -42,7 +43,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addStory(storyText: String!): Story
+    addStory(storyTitle: String!, storyText: String!): Story
     addComment(storyId: ID!, commentBody: String!): Story
     addFriend(friendId: ID!): User
   }

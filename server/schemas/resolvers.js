@@ -30,7 +30,9 @@ const resolvers = {
     },
     stories: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Story.find(params).sort({ createdAt: -1 });
+      return Story.find(params)
+      .select('-storyText')
+      .sort({ createdAt: -1 });
     },
     story: async (parent, { _id }) => {
       return Story.findOne({ _id });
