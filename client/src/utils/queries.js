@@ -14,6 +14,12 @@ export const QUERY_STORIES = gql`
         username
         commentBody
       }
+      likeCount
+      likes {
+        _id
+        num
+        username
+      }
     }
   }
 `;
@@ -32,6 +38,12 @@ export const QUERY_STORY = gql`
         createdAt
         username
         commentBody
+      }
+      likeCount
+      likes {
+        _id
+        num
+        username
       }
     }
   }
@@ -53,6 +65,7 @@ export const QUERY_USER = gql`
         storyTitle
         createdAt
         commentCount
+        likeCount
       }
     }
   }
@@ -74,6 +87,12 @@ export const QUERY_ME = gql`
           _id
           createdAt
           commentBody
+          username
+        }
+        likeCount
+        likes {
+          _id
+          num
           username
         }
       }

@@ -12,6 +12,7 @@ const Home = () => {
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const stories = data?.stories || [];
 
+
   const loggedIn = Auth.loggedIn();
 
   return (

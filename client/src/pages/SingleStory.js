@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
+import Like from '../components/Like'
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -16,6 +17,8 @@ const SingleStory = (props) => {
   });
 
   const story = data?.story || {};
+  console.log(story.likeCount)
+  console.log(story)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -34,6 +37,9 @@ const SingleStory = (props) => {
           <p>{story.storyTitle}</p>
           <p>{story.storyText}</p>
         </div>
+      </div>
+      <div>
+        {Auth.loggedIn() && <Like storyId={story._id} username = {story.username} />}
       </div>
 
       {story.commentCount > 0 && (

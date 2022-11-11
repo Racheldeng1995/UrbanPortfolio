@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const commentSchema = require('./Comment');
+const likeSchema = require('./Like');
 const dateFormat = require('../utils/dateFormat');
 
 const storySchema = new Schema(
@@ -26,7 +27,8 @@ const storySchema = new Schema(
       type: String,
       required: true
     },
-    comments: [commentSchema]
+    comments: [commentSchema],
+    likes: [likeSchema]
   },
   {
     toJSON: {
@@ -37,7 +39,13 @@ const storySchema = new Schema(
 
 storySchema.virtual('commentCount').get(function() {
   return this.comments.length;
-});
+})
+
+storySchema.virtual('likeCount').get(function() {
+  return this.likes.length ;
+})
+
+;
 
 const Story = model('Story', storySchema);
 

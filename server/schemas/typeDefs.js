@@ -18,12 +18,21 @@ const typeDefs = gql`
     username: String
     commentCount: Int
     comments: [Comment]
+    likeCount: Int
+    likes: [Like]
+
   }
 
   type Comment {
     _id: ID
     commentBody: String
     createdAt: String
+    username: String
+  }
+
+  type Like {
+    _id: ID
+    num: Int
     username: String
   }
 
@@ -46,6 +55,8 @@ const typeDefs = gql`
     addStory(storyTitle: String!, storyText: String!): Story
     addComment(storyId: ID!, commentBody: String!): Story
     addFriend(friendId: ID!): User
+    addLike(storyId: ID!, num: Int!): Story
+    removeLike(storyId: ID!, num: Int!): Story
   }
 `;
 

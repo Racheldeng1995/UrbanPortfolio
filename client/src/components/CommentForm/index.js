@@ -19,6 +19,7 @@ const CommentForm = ({ storyId }) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log({ commentBody, storyId })
 
     try {
       await addComment({

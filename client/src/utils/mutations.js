@@ -36,6 +36,11 @@ export const ADD_STORY = gql`
       comments {
         _id
       }
+      likeCount
+      likes {
+        _id
+        num
+      }
     }
   }
 `;
@@ -49,6 +54,33 @@ export const ADD_COMMENT = gql`
         _id
         commentBody
         createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_LIKE = gql`
+  mutation addLike($storyId: ID!, $num: Int!) {
+    addLike(storyId: $storyId, num: $num) {
+      _id
+      likeCount
+      likes {
+        _id
+        num
+        username
+      }
+    }
+  }
+`;
+
+export const REMOVE_LIKE = gql`
+  mutation removeLike($storyId: ID!, $num: Int!) {
+    removeLike(storyId: $storyId, num: $num) {
+      _id
+      likes {
+        _id
+        num
         username
       }
     }

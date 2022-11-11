@@ -102,6 +102,31 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    addLike: async (parent, { storyId, num }, context) => {
+      if (context.user) {
+        const updatedStory = await Story.findOneAndUpdate(
+          { _id: storyId },
+          { $push: { likes: { num, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedStory;
+      }
+    },
+
+    removeLike: async (parent, { storyId, num }, context) => {
+      if (context.user) {
+        const deleteLike = await Story.findOneAndUpdate(
+          { _id: storyId },
+          { $pull: { likes: { num, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return deleteLike;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
     }
   }
 };
