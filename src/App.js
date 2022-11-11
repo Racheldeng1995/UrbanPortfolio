@@ -10,9 +10,15 @@ function App() {
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
-            <Link className="navbar-brand" to={"/sign-in"}>
-              UrbanPortfolio
+            <Link className="img-container" to={"/sign-in"}>
+              <img
+                className="img"
+                to={"/sign-in"}
+                src=" http://logocache.com/custom-design/logo-name/urban-designstyle-colors-u.png"
+                alt="Urban logo"
+              />
             </Link>
+
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
@@ -32,6 +38,7 @@ function App() {
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Routes>
+              <Route exact path="/" element={<img />} />
               <Route exact path="/" element={<Login />} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
