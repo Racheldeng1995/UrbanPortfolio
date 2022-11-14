@@ -1,0 +1,42 @@
+* {
+  background-color: rgb(219, 191, 11);
+}
+img {
+  width: 300px;
+}
+.container {
+  width: 200px;
+  height: 200px;
+  margin: 100px auto;
+  position: relative;
+}
+.container span {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: #9b59b6;
+  animation: waving 3s both infinite ease-in-out;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-family: Lobster;
+}
+.container span:nth-of-type(2) {
+  left: 60px;
+  top: 0px;
+  animation-delay: 0.5s;
+}
+
+@keyframes waving {
+  0%,
+  100% {
+    background-color: #9b59b6;
+    transform: scaleY(1) translateZ(0px) rotateY(0deg);
+  }
+  50% {
+    background-color: #3498db;
+    transform: scaleY(2) translateZ(100px) rotatey(360deg);
+  }
+}
