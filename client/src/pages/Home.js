@@ -19,7 +19,7 @@ const Home = () => {
     <main>
       <div className="flex-row justify-center">
         {loggedIn && (
-          <div className="col-12 mb-3">
+          <div className="col-11 mb-3">
             <StoryForm />
           </div>
         )}
@@ -34,7 +34,7 @@ const Home = () => {
           )}
         </div>
         {loggedIn && userData ? (
-          <div className="col-12 col-lg-3 mb-3">
+          <div className="col-4 col-lg-3 ml-3">
             <FriendList
               username={userData.me.username}
               friendCount={userData.me.friendCount}

@@ -50,7 +50,7 @@ const Profile = (props) => {
 
   return (
     <div>
-      <div className="flex-row mb-3">
+      <div className="flex-row mb-3 justify-center">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
@@ -70,7 +70,7 @@ const Profile = (props) => {
           />
         </div>
 
-        <div className="col-12 col-lg-3 mb-3">
+        <div className="col-12 col-lg-3 m-3">
           <FriendList
             username={user.username}
             friendCount={user.friendCount}
