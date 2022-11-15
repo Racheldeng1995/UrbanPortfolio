@@ -25,7 +25,7 @@ const SingleStory = (props) => {
   }
 
   return (
-    <div>
+    <div className="flex-column">
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
@@ -39,7 +39,7 @@ const SingleStory = (props) => {
         </div>
       </div>
       <div className="mb-3">
-        <p>Login to share your stories and make friends!</p>
+        <p className="dgreen text-italic text-right">Login to share your stories and make friends!</p>
         {Auth.loggedIn() && <p>Check the heart icon if you like this sharing!</p>}
         {Auth.loggedIn() && <Like storyId={story._id} username = {story.username} />}
       </div>
