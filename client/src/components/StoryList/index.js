@@ -26,7 +26,7 @@ const StoryList = ({ stories, title }) => {
               <Link to={`/story/${story._id}`}>
                 <p>{story.storyTitle}</p>
                 <p className="mb-0">
-                  Comments: {story.commentCount}  Likes {story.likes.length? (story.likes.length): (0) } || Click to{' '}
+                  Comments: {story.commentCount}  Likes: {story.likes.length? (story.likes.length): (0) } || Click to{' '}
                   {story.commentCount ? 'see' : 'start'} the discussion!
                 </p>
               </Link>

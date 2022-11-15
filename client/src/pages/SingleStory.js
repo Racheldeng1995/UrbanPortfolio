@@ -17,8 +17,8 @@ const SingleStory = (props) => {
   });
 
   const story = data?.story || {};
-  console.log(story.likeCount)
-  console.log(story)
+  // console.log(story.likeCount)
+  // console.log(story)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -38,7 +38,8 @@ const SingleStory = (props) => {
           <p>{story.storyText}</p>
         </div>
       </div>
-      <div>
+      <div className="mb-3">
+        <p>Check the heart icon if you like this sharing!</p>
         {Auth.loggedIn() && <Like storyId={story._id} username = {story.username} />}
       </div>
 

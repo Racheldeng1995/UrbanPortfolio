@@ -15,8 +15,8 @@ const Like = ({ storyId, username }) => {
         liked: false
         })
       );
-    console.log(toString(state.liked))
-    console.log(state.liked)
+    // console.log(toString(state.liked))
+    // console.log(state.liked)
     console.log(localStorage.getItem('likestatus'))
   
     const [likesCount, setLikesNumber] = useState( localStorage.getItem( 'likecnt') || 0);
@@ -80,7 +80,7 @@ const Like = ({ storyId, username }) => {
                 ) : (
                 <FontAwesomeIcon icon={faHeart} />
                 )}
-                <p className='m-3'>{likesCount}</p>
+                <p className='m-3'>Likes: {likesCount}</p>
             </div>
             
         </div>
