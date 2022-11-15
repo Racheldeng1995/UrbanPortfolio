@@ -17,7 +17,7 @@ const Like = ({ storyId, username }) => {
       );
     // console.log(toString(state.liked))
     // console.log(state.liked)
-    console.log(localStorage.getItem('likestatus'))
+    // console.log(localStorage.getItem('likestatus'))
   
     const [likesCount, setLikesNumber] = useState( localStorage.getItem( 'likecnt') || 0);
 
