@@ -68,7 +68,7 @@ const Like = ({ storyId, username }) => {
     
     return (
         <div className="flex-row mb-3">
-            <p className="dgreen pr-4 mt-3">Check the heart icon if you like this sharing!</p>
+            <div className="dgreen pr-4 mt-3">Check the heart icon if you like this sharing!</div>
             <div
                 
                 onClick={toggle}
