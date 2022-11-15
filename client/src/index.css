@@ -39,14 +39,22 @@ body {
   background-image: linear-gradient(to right, var(--grey),var(--camel), var(--grey));
 }
 
+.text-italic {
+  font-style: italic;
+}
+
+.text-extralight {
+  font-weight: lighter;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Karla', sans-serif;
-  font-weight: 700;
+  /* font-family: 'Karla', sans-serif; */
+  /* font-weight: 700; */
   margin: 5px 2px;
   line-height: 0.8;
 }
@@ -69,6 +77,7 @@ h4 {
 
 h5 {
   font-size: 0.9rem;
+  font-weight: lighter;
 }
 
 h6 {
