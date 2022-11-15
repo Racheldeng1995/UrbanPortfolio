@@ -12,24 +12,26 @@ const StoryList = ({ stories, title }) => {
       <div className="flex-row justify-space-around">
         {stories &&
           stories.map(story => (
-            <div key={story._id} className="col-3 card ml-1 mr-1 mb-2 mt-2">
-              <p className="card-header">
+            <div key={story._id} className="col-3 card ml-1 mr-1 mb-2 mt-2 p-1">
+              <div className="card-header p-1">
                 <Link
                   to={`/profile/${story.username}`}
                   style={{ fontWeight: 700 }}
-                  className="text-light"
+                  // className="text-light"
                 >
-                  {story.username}
+                <div className="text-center">{story.username}</div>
                 </Link>{' '}
-                story posted on {story.createdAt}
-              </p>
-              <div className="card-body">
+                <h5 className="text-center">story posted on</h5>
+                <h5 className="text-center">{story.createdAt}</h5>
+              </div>
+              <div className="card-body text-justify p-2">
                 <Link to={`/story/${story._id}`}>
                   <p>{story.storyTitle}</p>
-                  <p className="mb-0">
-                    Comments: {story.commentCount}  Likes: {story.likes.length? (story.likes.length): (0) } || Click to{' '}
-                    {story.commentCount ? 'see' : 'start'} the discussion!
-                  </p>
+                  <div className="mb-0">
+                    <p className="text-center">Comments: {story.commentCount}  Likes: {story.likes.length? (story.likes.length): (0) } </p>
+                    <h6>Click to{' '}
+                    {story.commentCount ? 'see' : 'start'} the discussion!</h6> 
+                  </div>
                 </Link>
               </div>
             </div>
