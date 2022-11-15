@@ -9,30 +9,32 @@ const StoryList = ({ stories, title }) => {
   return (
     <div>
       <h3 className="text-center mb-3">{title}</h3>
-      {stories &&
-        stories.map(story => (
-          <div key={story._id} className="card mb-4">
-            <p className="card-header">
-              <Link
-                to={`/profile/${story.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
-              >
-                {story.username}
-              </Link>{' '}
-              story posted on {story.createdAt}
-            </p>
-            <div className="card-body">
-              <Link to={`/story/${story._id}`}>
-                <p>{story.storyTitle}</p>
-                <p className="mb-0">
-                  Comments: {story.commentCount}  Likes: {story.likes.length? (story.likes.length): (0) } || Click to{' '}
-                  {story.commentCount ? 'see' : 'start'} the discussion!
-                </p>
-              </Link>
+      <div className="flex-row justify-space-around">
+        {stories &&
+          stories.map(story => (
+            <div key={story._id} className="col-3 card ml-1 mr-1 mb-2 mt-2">
+              <p className="card-header">
+                <Link
+                  to={`/profile/${story.username}`}
+                  style={{ fontWeight: 700 }}
+                  className="text-light"
+                >
+                  {story.username}
+                </Link>{' '}
+                story posted on {story.createdAt}
+              </p>
+              <div className="card-body">
+                <Link to={`/story/${story._id}`}>
+                  <p>{story.storyTitle}</p>
+                  <p className="mb-0">
+                    Comments: {story.commentCount}  Likes: {story.likes.length? (story.likes.length): (0) } || Click to{' '}
+                    {story.commentCount ? 'see' : 'start'} the discussion!
+                  </p>
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 };

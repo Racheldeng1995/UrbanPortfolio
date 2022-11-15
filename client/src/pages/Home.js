@@ -17,13 +17,13 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-center">
+      <div>
         {loggedIn && (
           <div className="col-11 mb-3">
             <StoryForm />
           </div>
         )}
-        <div className={`col-6 mb-3 ${loggedIn && 'col-lg-8'}`}>
+        <div className={`flex-row justify-center mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (
