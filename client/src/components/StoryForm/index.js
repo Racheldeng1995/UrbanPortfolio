@@ -77,7 +77,7 @@ const StoryForm = () => {
       >
         <div>
           <p
-          className={`m-0 ${characterCount.storyTitle === 12 || error ? 'text-error' : ''}`}
+          className={`m-0 dgreen ${characterCount.storyTitle === 12 || error ? 'text-error' : ''}`}
           name="storyTitle"
           >
             Character Count: {characterCount.storyTitle}/12
@@ -93,7 +93,7 @@ const StoryForm = () => {
         </div>
         <div>
           <p
-          className={`m-0 ${characterCount.storyText === 280 || error ? 'text-error' : ''}`}
+          className={`m-0 dgreen ${characterCount.storyText === 280 || error ? 'text-error' : ''}`}
           name="storyText"
           >
             Character Count: {characterCount.storyText}/280
