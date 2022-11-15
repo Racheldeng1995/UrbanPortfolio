@@ -39,6 +39,7 @@ body {
   color: var(--dark);
   /* background-color: var(--light); */
   background-image: linear-gradient(to right, var(--grey),var(--camel), var(--grey));
+
 }
 
 .text-italic {
@@ -203,6 +204,7 @@ nav a:hover {
 .form-input,
 .form-textarea {
   display: block;
+  color: var(--primary);
 
 }
 
