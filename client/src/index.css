@@ -9,7 +9,9 @@
   --dgreen: rgb(204, 213, 174);
   --camel: rgb(254, 250, 224 );
   --grey: rgb(250, 237, 205);
+  --pink: rgb(255, 148, 150);
   --error: rgb(228, 46, 1);
+
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
   --spacing-two: calc(1rem * 0.5);
@@ -836,6 +838,13 @@ nav a:hover {
   color: var(--dgreen);
 }
 
+.orange {
+  color: var(--secondary);
+}
+
+.pink {
+  color: var(--pink);
+}
 /* FLEX CONTENT */
 .flex-row {
   display: flex;

@@ -39,9 +39,10 @@ const SingleStory = (props) => {
         </div>
       </div>
       <div className="mb-3">
-        <p className="dgreen text-italic text-right">Login to share your stories and make friends!</p>
-        {Auth.loggedIn() && <p>Check the heart icon if you like this sharing!</p>}
+        {Auth.loggedIn() && <p className="dgreen text-italic text-right">Login to share your stories and make friends!</p>}
+        
         {Auth.loggedIn() && <Like storyId={story._id} username = {story.username} />}
+        
       </div>
 
       {story.commentCount > 0 && (

@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/client';
 import { ADD_LIKE } from '../../utils/mutations';
 import { REMOVE_LIKE } from '../../utils/mutations';
 
-
 const Like = ({ storyId, username }) => {
 
     const [state, setState] = useState(
@@ -15,7 +14,7 @@ const Like = ({ storyId, username }) => {
         liked: false
         })
       );
-    // console.log(toString(state.liked))
+    console.log("state.liked: " +toString(state.liked))
     // console.log(state.liked)
     // console.log(localStorage.getItem('likestatus'))
   
@@ -68,12 +67,12 @@ const Like = ({ storyId, username }) => {
     };
     
     return (
-        <div className="container mb-3">
-            
+        <div className="flex-row mb-3">
+            <p className="dgreen pr-4 mt-3">Check the heart icon if you like this sharing!</p>
             <div
                 
                 onClick={toggle}
-                className="flex-row align-center"
+                className="flex-row align-center pink"
             >
                 {String(state.liked) == "false" ? (
                 <FontAwesomeIcon icon={farHeart} />
