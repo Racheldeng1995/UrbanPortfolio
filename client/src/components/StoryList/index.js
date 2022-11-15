@@ -8,10 +8,10 @@ const StoryList = ({ stories, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
+      <h3 className="text-center mb-3">{title}</h3>
       {stories &&
         stories.map(story => (
-          <div key={story._id} className="card mb-3">
+          <div key={story._id} className="card mb-4">
             <p className="card-header">
               <Link
                 to={`/profile/${story.username}`}
