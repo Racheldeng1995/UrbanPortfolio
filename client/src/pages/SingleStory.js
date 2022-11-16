@@ -39,7 +39,14 @@ const SingleStory = (props) => {
         </div>
       </div>
       <div className="mb-3">
-        {Auth.loggedIn() && <p className="dgreen text-italic text-right">Login to share your stories and make friends!</p>}
+        {Auth.loggedIn() ? (
+              <>
+              </>
+            ) : (
+              <>
+<p className="dgreen text-italic text-right">Login to share your stories and make friends!</p> 
+              </>
+            )}
         
         {Auth.loggedIn() && <Like storyId={story._id} username = {story.username} />}
         
