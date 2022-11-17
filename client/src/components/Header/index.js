@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-img-1 mb-4 py-2 flex-row align-center">
+    <header className="header-wrapper bg-img-1 mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
           <img
@@ -24,16 +24,24 @@ const Header = () => {
         <nav className="text-center">
           {Auth.loggedIn() ? (
             <>
-              <Link to="/profile">Me</Link>
+              <Link to="/profile">
+                <span className="link">Me</span>
+              </Link>
               <a href="/" onClick={logout}>
-                Logout
+                <span className="link"> Logout</span>
               </a>
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-              <Link to="/">Donation</Link>
+              <Link to="/login">
+                <span className="link"> Login</span>
+              </Link>
+              <Link to="/signup">
+                <span className="link"> Signup</span>
+              </Link>
+              <Link to="/">
+                <span className="link"> Donation</span>
+              </Link>
             </>
           )}
         </nav>

@@ -36,7 +36,7 @@ const SingleStory = (props) => {
   }
 
   return (
-    <div class="story-container">
+    <div class="story-ontainer">
       <div class="card mb-3">
         <p className="">
           <span style={{ fontWeight: 700 }} className="text-light">

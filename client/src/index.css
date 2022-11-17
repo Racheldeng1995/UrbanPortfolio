@@ -2,13 +2,13 @@
   --primary: rgb(190, 154, 107);
   --secondary: rgb(255, 183, 3);
   --tertiary: (251, 241, 234);
-  --quatrinary: rgb(251, 133, 0);
+  --quatrinary: rgba(202, 86, 44, 0.951);
   --light: white;
   --dark: rgb(255, 230, 170);
-  --green: rgb(233, 237, 201);
+  --green: rgba(92, 184, 16, 0.804);
   --dgreen: rgb(204, 213, 174);
-  --camel: rgb(254, 250, 224 );
-  --grey: rgb(250, 237, 205);
+  --camel: rgb(254, 250, 224);
+  --grey: rgb(184, 145, 48);
   --pink: rgb(255, 148, 150);
   --error: rgb(228, 46, 1);
 
@@ -22,6 +22,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Fredoka One", cursive;
 }
 
 html,
@@ -32,14 +33,18 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
   /* background-color: var(--light); */
-  background-image: linear-gradient(to right, var(--grey),var(--camel), var(--grey));
-
+  background-image: linear-gradient(
+    to right,
+    var(--grey),
+    var(--camel),
+    var(--grey)
+  );
 }
 
 .text-italic {
@@ -133,17 +138,17 @@ nav a:hover {
 }
 
 .btn {
-    font-size: 1.3rem;
-    text-decoration: none;
-    padding: 0.5rem 1.2rem;
-    margin: 5px 0;
-    border-radius: var(--border-radius);
-    border: var(--secondary);
-    outline: none;
-    transition: all 0.5s;
-    background-color: var(--secondary);
-    color: var(--dark);
-  }
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  border: var(--secondary);
+  outline: none;
+  transition: all 0.5s;
+  background-color: var(--secondary);
+  color: var(--dark);
+}
 
 .pill {
   font-size: 1.3rem;
@@ -177,16 +182,25 @@ nav a:hover {
 }
 
 /* CARDS */
-.card {
+.login-card {
   margin: 0 0 20px 0;
   border: 3px solid var(--green);
   border-radius: var(--border-radius);
+  border-radius: 15px;
+  background-color: var(--light);
+  color: var(--primary);
+}
+.signup-card {
+  margin: 0 0 20px 0;
+  border: 3px solid var(--green);
+  border-radius: var(--border-radius);
+  border-radius: 15px;
   background-color: var(--light);
   color: var(--primary);
 }
 
 .card-header {
-  color: var(--dgreen);
+  color: white;
   margin: 0;
   background-color: var(--green);
   /* background-image: linear-gradient(var(--dgreen), var(--green)); */
@@ -205,7 +219,6 @@ nav a:hover {
 .form-textarea {
   display: block;
   color: var(--primary);
-
 }
 
 .form-label {
@@ -223,13 +236,13 @@ nav a:hover {
   color: var(--primary);
 }
 
-[type='radio']:checked,
-[type='radio']:not(:checked) {
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
-[type='radio']:checked + label,
-[type='radio']:not(:checked) + label {
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -239,9 +252,9 @@ nav a:hover {
   margin-right: 0.2rem;
 }
 
-[type='radio']:checked + label:before,
-[type='radio']:not(:checked) + label:before {
-  content: '';
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -251,9 +264,9 @@ nav a:hover {
   border-radius: 100%;
   background: #fff;
 }
-[type='radio']:checked + label:after,
-[type='radio']:not(:checked) + label:after {
-  content: '';
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: "";
   width: 12px;
   height: 12px;
   background-color: var(--secondary);
@@ -265,13 +278,13 @@ nav a:hover {
   transition: all 0.2s ease;
 }
 
-[type='radio']:not(:checked) + label:after {
+[type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-[type='radio']:checked + label:after {
+[type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -559,30 +572,37 @@ nav a:hover {
 /* Padding - all sides */
 .p-0 {
   padding: 0;
+  font-size: 0.7rem;
 }
 
 .p-1 {
   padding: var(--spacing-one);
+  font-size: 0.7rem;
 }
 
 .p-2 {
   padding: var(--spacing-two);
+  font-size: 0.7rem;
 }
 
 .p-3 {
   padding: var(--spacing-three);
+  font-size: 0.7rem;
 }
 
 .p-4 {
   padding: var(--spacing-four);
+  font-size: 0.7rem;
 }
 
 .p-5 {
   padding: var(--spacing-five);
+  font-size: 0.7rem;
 }
 
 .p-auto {
   padding: auto;
+  font-size: 0.7rem;
 }
 
 /* padding-bottom */
@@ -834,11 +854,15 @@ nav a:hover {
 }
 
 .bg-img-1 {
-    background-image: linear-gradient(to right, var(--quatrinary) , var(--secondary));
+  background-image: linear-gradient(
+    to right,
+    var(--quatrinary),
+    var(--secondary)
+  );
 }
 
 .bg-img-2 {
-  background-image: linear-gradient(to top, var(--primary) , var(--dark));
+  background-image: linear-gradient(to top, var(--primary), var(--dark));
 }
 
 .bg-tertiary {
