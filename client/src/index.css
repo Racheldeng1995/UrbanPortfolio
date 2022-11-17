@@ -806,6 +806,7 @@ nav a:hover {
 
 .text-center {
   text-align: center;
+  color: rgba(0, 0, 0, 0.798);
 }
 
 .text-justify {
@@ -814,6 +815,7 @@ nav a:hover {
 
 .text-right {
   text-align: right;
+  color: wheat;
 }
 
 .text-primary {
@@ -821,7 +823,9 @@ nav a:hover {
 }
 
 .text-secondary {
-  color: var(--secondary);
+  color: black;
+  border-radius: 10px;
+  font-size: 30px;
 }
 
 .text-tertiary {
