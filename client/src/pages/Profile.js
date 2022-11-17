@@ -6,23 +6,31 @@ import StoryList from '../components/StoryList';
 import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
 
+  console.log(userParam)
+
   const [addFriend] = useMutation(ADD_FRIEND);
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
+    variables: { username: userParam }
   });
+  console.log(useQuery(QUERY_USER,{
+    variables: { username: 'rachel' }
+  }))
 
+  console.log({ username: userParam })
+
+  console.log(typeof(userParam))
   const user = data?.me || data?.user || {};
-
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/profile:username" />;
+    return <Navigate to="/profile" />;
   }
 
   if (loading) {

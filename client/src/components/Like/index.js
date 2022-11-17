@@ -5,11 +5,28 @@ import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import { useMutation } from '@apollo/client';
 import { ADD_LIKE } from '../../utils/mutations';
 import { REMOVE_LIKE } from '../../utils/mutations';
+import { QUERY_STORY } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
 
 const Like = ({ storyId, username }) => {
+    const { loading, data } = useQuery(QUERY_STORY, {
+        variables: { id: storyId },
+      });
+    
+    const employees = data.story.likes
+
+    const isFound = employees.some(element => {
+        if (element.username === username) {
+          return true;
+        }
+    
+        return false;
+      });
+
+    console.log(isFound)
 
     const [state, setState] = useState(
-        localStorage.getItem( 'likestatus')? ({liked: localStorage.getItem( 'likestatus')=='true'}) : ( 
+        (isFound) ? ({liked: 'true'}) : localStorage.getItem( 'likestatus') ? ({liked: localStorage.getItem( 'likestatus')=='true'}) : ( 
         {
         liked: false
         })
@@ -18,7 +35,7 @@ const Like = ({ storyId, username }) => {
     // console.log(state.liked)
     // console.log(localStorage.getItem('likestatus'))
   
-    const [likesCount, setLikesNumber] = useState( localStorage.getItem( 'likecnt') || 0);
+    const [likesCount, setLikesNumber] = useState( (isFound)? (1) : (localStorage.getItem( 'likecnt') || 0));
 
     const [addLike] = useMutation(ADD_LIKE);
 
@@ -34,9 +51,9 @@ const Like = ({ storyId, username }) => {
         setState({ liked: localLiked});
 
         if(localLiked){
-            const num = likesCount + 1
+            const num = parseInt(likesCount) + 1
             localStorage.setItem( 'likecnt', num );
-            setLikesNumber(likesCount + 1)
+            setLikesNumber(parseInt(likesCount) + 1)
             console.log({ storyId, num })
             try {
                 await addLike({
@@ -50,8 +67,8 @@ const Like = ({ storyId, username }) => {
         }
         if(!localLiked){
             const num = parseInt(likesCount)
-            localStorage.setItem( 'likecnt', likesCount - 1 );
-            setLikesNumber(likesCount - 1)
+            localStorage.setItem( 'likecnt', parseInt(likesCount) - 1 );
+            setLikesNumber(parseInt(likesCount) - 1)
             console.log({ num, username })
             try {
                 await removeLike({

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const StoryList = ({ stories, title }) => {
+  console.log(stories)
   if (!stories.length) {
     return <h3>No Stories Yet</h3>;
   }

@@ -1,2 +1,16 @@
 [
+    { 
+        "username" : "rachel", 
+        "email" : "racheldeng1995@gmail.com", 
+        "password" : "Deng950905!", 
+        "stories" : [],
+        "friends" : [] 
+    },
+    { 
+        "username" : "jane", 
+        "email" : "jane@gmail.com", 
+        "password" : "12345jane", 
+        "stories" : [],
+        "friends" : [] 
+    }
 ]

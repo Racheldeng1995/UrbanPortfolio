@@ -56,19 +56,30 @@ export const QUERY_USER = gql`
       username
       email
       friendCount
-      friends {
-        _id
-        username
-      }
       stories {
         _id
         storyTitle
         createdAt
         commentCount
+        comments {
+          _id
+          createdAt
+          commentBody
+          username
+        }
         likeCount
+        likes {
+          _id
+          num
+          username
+        }
+      }
+      friends {
+        _id
+        username
       }
     }
-  }
+}
 `;
 
 export const QUERY_ME = gql`

@@ -8,6 +8,7 @@ import Like from '../components/Like'
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_STORY } from '../utils/queries';
+import { QUERY_ME_BASIC } from '../utils/queries';
 
 const SingleStory = (props) => {
   const { id: storyId } = useParams();
@@ -16,6 +17,15 @@ const SingleStory = (props) => {
     variables: { id: storyId },
   });
 
+  console.log(useQuery(QUERY_STORY, {
+    variables: { id: storyId },
+  }))
+
+
+
+  const { data: userData } = useQuery(QUERY_ME_BASIC);
+
+  console.log(data)
   const story = data?.story || {};
   // console.log(story.likeCount)
   // console.log(story)
@@ -48,7 +58,7 @@ const SingleStory = (props) => {
               </>
             )}
         
-        {Auth.loggedIn() && <Like storyId={story._id} username = {story.username} />}
+        {Auth.loggedIn() && <Like storyId={story._id} username = {userData.me.username} />}
         
       </div>
 
