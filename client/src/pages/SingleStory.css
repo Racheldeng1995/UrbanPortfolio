@@ -4,7 +4,8 @@
   width: 600px;
   top: 60px;
   left: calc(50% - 300px);
-  display: flex;
+  margin-top: 6%;
+  margin-left: 5%;
 }
 
 .card {
@@ -82,6 +83,7 @@
   position: absolute;
   top: 150px;
   left: calc(50% - 60px);
+  width: 100%;
 }
 
 .stroke {
@@ -99,4 +101,14 @@ svg {
 .card:hover .stroke {
   stroke-dashoffset: 100;
   transition: 0.6s ease-out;
+}
+
+.circle img {
+  border: 2px solid;
+  border-radius: 40px;
+  width: 70px;
+  margin-left: 20px;
+}
+.seconder {
+  margin-top: 10%;
 }

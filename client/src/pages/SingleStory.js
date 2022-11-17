@@ -36,7 +36,7 @@ const SingleStory = (props) => {
   }
 
   return (
-    <div class="story-ontainer">
+    <div class="story-container">
       <div class="card mb-3">
         <p className="">
           <span style={{ fontWeight: 700 }} className="text-light">
@@ -50,13 +50,11 @@ const SingleStory = (props) => {
           <div class="filledbar">{story.storyText}</div>
         </div>
         <div class="circle">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle class="stroke" cx="60" cy="60" r="50" />
-          </svg>
+          <img src="https://picsum.photos/200/300"></img>
         </div>
       </div>
 
-      <div className="mb-3">
+      <div className=" seconder mb-3">
         {Auth.loggedIn() ? (
           <></>
         ) : (
